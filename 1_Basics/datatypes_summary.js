@@ -53,3 +53,27 @@ console.log(typeof myFunction); // function is type of object function but the o
 console.log(typeof id);
 
 //link:- https://262.ecma-international.org/5.1/#sec-11.4.3
+
+
+// stack memory(For primitive), Heap (Non-primitive). 
+//From heap we get the reference and if we change anything then value in original object will be changed.
+
+// while primitve gives a copy so if we change the value in copy it will not reflect in main object.
+
+let myName = "Anubhav";
+let secondName = myName;
+
+console.log(myName,secondName);
+secondName = "Singh"
+console.log(myName,secondName);// main var will not change as copy is provided
+
+let user = {
+    email:"anjngwrghw",
+    UPI:"123534324"
+};
+
+
+let user2 = user;
+console.log(user.UPI,user2.UPI);
+user2.UPI = 1234324;
+console.log(user.UPI,user2.UPI);
