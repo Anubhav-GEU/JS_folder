@@ -39,3 +39,22 @@ console.log(Object.keys(tinderUser)); // use to find all the keys of specified o
 console.log(Object.values(tinderUser));
 console.log(Object.entries(tinderUser)); // every key value pair is converted to array.
 console.log(tinderUser.hasOwnProperty('isLogged')); // return true is object has this property else return false.
+
+
+// destructuring object
+const course = {
+    coursename: "Js in hindi",
+    price: "99",
+    courseInstructor: "Anubhav"
+}
+
+const {courseInstructor: instructor} = course;
+console.log(instructor);
+
+// {
+//     "name": "Anubhav",
+//     "coursename": "js in hindi",
+//     "price: free"
+// }
+
+// sometime api may occur in array form.
