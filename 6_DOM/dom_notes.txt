@@ -1,0 +1,78 @@
+// accessing elements by id
+doucment.getElementsById('title');
+// title is id of the tag;
+// output is <h1 id="title" class="heading">Dom Learning with Hitesh Sir.</h1>
+doucment.getElementsById('title').id; --> return the id of the tag
+doucment.getElementsById('title').className; --> it returns the class of the tag. we can't use class we have to use className in jsx.
+// getting value of the attribute.
+doucment.getElementsById('title').getAttribute('id') -->return attribute value of the id
+doucment.getElementsById('title').getAttribute('class') -->return attribute value of the class
+document.getElementById('title').setAttribute('class', 'test heading1') // setAttribute overwrites the previous value.
+adding style to the attrubute
+title = document.getElementById('title')
+title.style.backgroundColor = 'green';
+// above line will set the bg color green
+
+// getting text of the tag
+title.innerHTML 
+'Dom Learning with Hitesh Sir.'--> innerHTML shows text of the tag as well as if any tag is present inside the tag then it also shows that.
+title.textContent
+'Dom Learning with Hitesh Sir.' --> textContent shows all the content of the tag whether it is hidden or not.
+title.innerText
+'Dom Learning with Hitesh Sir.' -- > innertext vo krta hai jo visible h on the screen i.e it can't show hidden tag content
+
+
+// get elements by class class
+document.getElementsByClassName('heading');
+document.getElementsByClassName('list-item')
+
+const tempClass = document.getElementsByClassName('list-item')
+undefined
+tempClass
+// convert HTML collection to array to use for each
+Array.from(tempClass)
+const myConvertedArray = Array.from(tempClass)
+undefined
+myConvertedArray.forEach(function(li){
+    li.style.color = 'red'
+})
+undefined
+
+// query selector
+document.querySelector('h1')
+<h1 id=​"title" class=​"heading">​Dom Learning with Hitesh Sir.​</h1>​
+document.querySelector('title')
+<title>​DOM Learning​</title>​
+document.querySelector('#title') --> accessing the id
+<h1 id=​"title" class=​"heading">​Dom Learning with Hitesh Sir.​</h1>​
+document.querySelector('.heading') --> accessing the class
+<h1 id=​"title" class=​"heading">​Dom Learning with Hitesh Sir.​</h1>​
+
+document.querySelector('input[type="password"]') // accessing form
+
+document.querySelector('ul')
+<ul>​…​</ul>​<li>​::marker​"Home"</li>​<li>​…​</li>​<li>​…​</li>​<li>​…​</li>​<li>​…​</li>​</ul>​
+const myul = document.querySelector('ul')
+undefined
+myul
+<ul>​…​</ul>​
+myul.querySelector('li')
+<li>​::marker​"Home"</li>​
+const turngreen = myul.querySelector('li')
+undefined
+turngreen.style.backgroundColor = 'green';
+'green'
+turngreen.style.padding = '10px';
+'10px'
+
+
+// querySelector selects first tag that you have specified 
+and querySelectorAll return all the tag
+
+const tempList = document.querySelectorAll('li');
+tempList[0].style.color = 'purple'
+'purple'
+
+tempList.forEach(function(item) {
+    item.style.backgroundColor = 'green';
+})
