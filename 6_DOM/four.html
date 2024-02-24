@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM chai aur code</title>
+</head>
+<body style="background-color: black; color: white;">
+    <ul class="language">
+        <li>Javascript</li>
+    </ul>
+    <script>
+        function addLanguage(langName) {
+            const element = document.createElement('li');
+            element.innerHTML = `${langName}`;
+            document.querySelector('.language').appendChild(element);
+            // the problem in above method is that to append the element in the tree it has to traverse the tree first then append which can take huge time if the tree is very large.
+        }
+        addLanguage("python");
+        addLanguage("javascript");
+
+        // optimised approach of above method;
+        function addOptiLanguage(langName) {
+            const li = document.createElement('li');
+            li.appendChild(document.createTextNode(langName)); // the second step is better than innerHTML as it doesn't traverse the whole tree.
+            document.querySelector('.language').appendChild(li);
+        }
+        addOptiLanguage('goLang')
+        addOptiLanguage('Java');
+
+        // Edit the element
+        const secLang = document.querySelector("li:nth-child(2)");
+        // secLang.innerHTML = 'C'; // it is used less as it is not optimsed.
+        const newLi = document.createElement('li');
+        newLi.textContent = 'C';
+        secLang.replaceWith(newLi);
+
+        //2nd method to edit
+        const firstLang = document.querySelector('li:first-child');
+        firstLang.outerHTML = "<li>TypeScript</li>";
+
+        // to remove;
+        const lastLang = document.querySelector('li:first-child');
+        lastLang.remove();
+    </script>
+</body>
+</html>
