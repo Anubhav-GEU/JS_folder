@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body style="background-color: #212121;">
+    0 UNSENT Client has been created. open() not called yet.
+    1 OPENED open() has been called.
+    2 HEADERS_RECEIVED send() has been called, and headers and status are available.
+    3 LOADING Downloading; responseText holds partial data.
+    4 DONE The operation is complete.
+</body>
+<script>
+    // create a object of xml 
+    const requestURL = 'https://api.github.com/users/Anubhav-GEU';
+    const xhr = new XMLHttpRequest();
+    // open sends the request;
+    // 1st parameter is method('GET','POST',etc) and the second method is  the string which contains the adress from where we want to fetch.
+    xhr.open('GET',requestURL);
+    // till now the open method is not call, it will get called only if we use the send method;
+    xhr.onreadystatechange = function() {
+        console.log(xhr.readyState);
+        if (xhr.readyState === 4) {
+            // to print current context we use this keyword.
+            const data = JSON.parse(this.responseText) // convert string to parse
+            // console.log(data.login); // this will not work bcoz when we fetch the data from the size it comes in from of string so we can't use . operator on this.
+        }
+    }
+    xhr.send();
+
+    // log is basically not the part of JS it is an api java fetches it at runtime.
+</script>
+
+</html>
