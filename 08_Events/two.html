@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chai Aur Code</title>
+</head>
+<body>
+    <h1>Chai aur code</h1>
+    <button id="stop">Stop</button>
+    <script>
+        setTimeout(function(){
+            console.log("anubhav narayan singh");
+        },2000) // it is a method which calls api. ye call hone par bahar jate hai phir event queue ke baad enter hote h js me.
+        // handler is a callback jiska generally naam nhi h, dusra time h jo number hota h
+        // time out me 2 sec ke baad ye ek baar execute krega.
+        // also we can do this.
+        const func = function () {
+            console.log("anubhav narayan singh");
+        }
+        setTimeout(func,2000);// reference pass krenge () nhi lagayenge.
+        // interval har 2 sec ke baad same chiz execute krega but timeout sirf 2 sec ke baad execute krega
+        const changeText = function() {
+            document.querySelector('h1').innerHTML = 'best js series';
+        }
+        const change = setTimeout(changeText,2000);
+
+        // to stop the timeout we have to use cleartimeout in this we pass the reference of the settimeout we want to stop.
+        clearTimeout(change); // it removes all the reference of the change setTimeInterval from the event queue so that it doesn't execute.
+
+        // applying clearTimeout on events;
+        document.querySelector('#stop').addEventListener('click',function() {
+            clearTimeout(change);
+            console.log("stopped");
+        })
+    </script>
+</body>
+</html>
